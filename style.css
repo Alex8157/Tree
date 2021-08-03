@@ -1,0 +1,75 @@
+*{
+    font-size: 10px;
+}
+
+body {
+    margin:0;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#buttonBlock {
+    margin: 3rem;
+}
+
+#buttonBlock input{
+    font-size: 2rem;
+    width: 5rem;
+}
+
+#buttonBlock input:focus{
+    outline: 0;
+}
+
+#buttonBlock button{
+    font-size: 2rem;
+}
+
+#tree {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.level {
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.circle {
+    font-size: 2rem;
+    width: 10rem;
+    height: 10rem;
+    border: 0.3rem solid black;
+    border-radius: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyСircle {
+    font-size: 2rem;
+    width: 10rem;
+    height: 10rem;
+    border: 0.3rem solid rgba(0, 0, 0, 0);
+    border-radius: 10rem;
+}
+
+.circle input{
+    font-size: 2rem;
+    width: 9rem;
+    height: 9rem;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    border-radius: 5rem;
+    outline: none;
+}
+
+.delete {
+    border-radius: 3rem;
+    margin-bottom: 0.5rem;
+}
