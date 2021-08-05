@@ -16,9 +16,8 @@ function clearTree(tree) {
 function makeTree(tree, number) {
     let currentLevel = 0;  
     for (let currentNode = 1; currentNode <= number; currentNode++) {
-        if (currentNode < 2**currentLevel) {
-            var level = document.getElementById( `level${currentLevel}` );   
-        } else {
+        var level = document.getElementById( `level${currentLevel}` ); 
+        if (currentNode >= 2**currentLevel) {
             currentLevel++;
             var level = createDomElement( `<div class='level' id='level${currentLevel}'></div>` );
             tree.appendChild( level );  
