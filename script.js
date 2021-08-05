@@ -16,10 +16,10 @@ function clearTree(tree) {
 function makeTree(tree, number) {
     let currentLevel = 0;  
     for (let currentNode = 1; currentNode <= number; currentNode++) {
-        var level = document.getElementById( `level${currentLevel}` ); 
+        let level = document.getElementById( `level${currentLevel}` ); 
         if (currentNode >= 2**currentLevel) {
             currentLevel++;
-            var level = createDomElement( `<div class='level' id='level${currentLevel}'></div>` );
+            level = createDomElement( `<div class='level' id='level${currentLevel}'></div>` );
             tree.appendChild( level );  
         }
         const node = createDomElement( `<div class='circle' id='circle${currentNode}'><input type="text"><button class="delete" onclick="deleteMe('circle${currentNode}')">delete</button></div>` );
