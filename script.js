@@ -1,53 +1,46 @@
-const button = document.getElementById( 'buttonNodes' );
-
-button.addEventListener('click', ( ) =>
-    {   
-        let number = document.getElementById( 'numberNodes' ).value;
-        if (parseInt(number) != number) {
-            number = 0;
+document.addEventListener( "DOMContentLoaded", async () => {
+    const button = document.getElementById( 'buttonNodes' );
+    button.addEventListener('click', ( ) => {   
+            const number = document.getElementById( 'numberNodes' ).value;
+            const tree = document.getElementById( 'tree' );
+            clearTree(tree);
+            makeTree(tree, number);
         }
-        let tree = document.getElementById( 'tree' );
-        clearTree(tree);
-        makeTree(tree, number);
-    }
-);
+    );
+});
 
 function clearTree(tree) {
-    while (tree.firstChild) {
-        tree.removeChild(tree.lastChild);
-    }
+    tree.innerHTML = '';
 };
 
 function makeTree(tree, number) {
-    currentLevel = 0;  
+    let currentLevel = 0;  
     for (let currentNode = 1; currentNode <= number; currentNode++) {
         if (currentNode < 2**currentLevel) {
-            let level = document.getElementById( `level${currentLevel}` );
-            const node = createDomElement( `<div class='circle' id='circle${currentNode}'"><input type="text"><button class="delete" onclick="deleteMe('circle${currentNode}')">delete</button></div>` );
-            level.appendChild( node );  
+            var level = document.getElementById( `level${currentLevel}` );   
         } else {
             currentLevel++;
-            const level = createDomElement( `<div class='level' id='level${currentLevel}'></div>` );
+            var level = createDomElement( `<div class='level' id='level${currentLevel}'></div>` );
             tree.appendChild( level );  
-            const node = createDomElement( `<div class='circle' id='circle${currentNode}'"><input type="text"><button class="delete" onclick="deleteMe('circle${currentNode}')">delete</button></div>` );
-            level.appendChild( node );  
-        }       
+        }
+        const node = createDomElement( `<div class='circle' id='circle${currentNode}'><input type="text"><button class="delete" onclick="deleteMe('circle${currentNode}')">delete</button></div>` );
+        level.appendChild( node );
     }
     makeBeauty(number, currentLevel)
 }
 
 function makeBeauty(number, currentLevel) {
     for (let currentNumber = number; currentNumber < 2**currentLevel-1; currentNumber++) {
-        let level = document.getElementById( `level${currentLevel}` );
-        const node = createDomElement( `<div class='emptyСircle'"></div>` );
+        const level = document.getElementById( `level${currentLevel}` );
+        const node = createDomElement( `<div class='emptyСircle''></div>` );
         level.appendChild( node );   
     }
 }
 
 function deleteMe(id) {
-    let node = document.getElementById( `${id}` );
-    let paretnNode = node.parentNode;
-    let newNode = createDomElement( `<div class='emptyСircle'"></div>` );
+    const node = document.getElementById( `${id}` );
+    const paretnNode = node.parentNode;
+    const newNode = createDomElement( `<div class='emptyСircle''></div>` );
     paretnNode.replaceChild (newNode, node)
 }
 
